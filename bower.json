@@ -1,0 +1,16 @@
+{
+  "name": "Jobs view",
+  "homepage": "https://github.com/hiof/jobs-view",
+  "authors": [
+    "Kenneth Dahlstrøm <kenneth.dahlstrom@hiof.no>"
+  ],
+  "description": "canvas package",
+  "dependencies": {
+    "sass-mq": "~3.2.2",
+    "jquery.scrollTo": "~1.4.11",
+    "frontend": "https://github.com/hiof/frontend.git",
+    "pathjs": "https://github.com/mtrpcic/pathjs.git",
+    "detectjs": "https://github.com/darcyclarke/Detect.js.git",
+    "handlebars": "~2.0.0"
+  }
+}
