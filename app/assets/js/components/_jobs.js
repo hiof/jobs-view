@@ -102,6 +102,7 @@
   $(function() {
     if ($('#jobs-list').length) {
       getJobs();
+      $('.footable-loaded').trigger('footable_expand_first_row');
     }
     if ($('#jobs-list-en').length) {
       getJobs('en');
