@@ -295,9 +295,9 @@ grunt.registerTask('subtaskJswww', ['eslint', 'handlebars', 'babel', 'concat:scr
 grunt.registerTask('subtaskJswww2', ['eslint', 'handlebars', 'babel', 'concat:scripts2',  'uglify']);
 grunt.registerTask('subtaskCss', ['sass', 'autoprefixer', 'cssmin']);
 
-grunt.registerTask('build', ['clean:build', 'clean:dist', 'copy:images', 'subtaskJs', 'subtaskCss', 'versioning:build']);
+grunt.registerTask('build', ['clean:build', 'clean:dist', 'copy:images', 'subtaskJswww', 'subtaskCss', 'versioning:build']);
 grunt.registerTask('build2', ['clean:build', 'clean:dist', 'copy:images', 'subtaskJswww2', 'subtaskCss', 'versioning:build']);
-grunt.registerTask('deploy', ['clean:build', 'clean:dist', 'copy:images', 'subtaskJs', 'subtaskCss', 'versioning:deploy', 'copy:dist']);
+grunt.registerTask('deploy', ['clean:build', 'clean:dist', 'copy:images', 'subtaskJswww', 'subtaskCss', 'versioning:deploy', 'copy:dist']);
 grunt.registerTask('deploy2', ['clean:build', 'clean:dist', 'copy:images', 'subtaskJswww2', 'subtaskCss', 'versioning:deploy', 'copy:dist']);
 
 

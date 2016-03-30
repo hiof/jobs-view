@@ -1,8 +1,8 @@
 (function(Hiof, undefined) {
 
   // Functions
-  getJobs = function(lang) {
-    var data;
+  Hiof.getJobs = function(lang) {
+    //var data;
     if (typeof lang === 'undefined') {
       lang = 'no';
     }
@@ -11,7 +11,7 @@
       lang: lang,
       type: type
     }
-    console.log(settings);
+    //console.log(settings);
     $.ajax({
       url: 'http://hiof.no/api/v1/jobs/',
       method: 'GET',
@@ -20,7 +20,7 @@
       data: settings,
       success: function(data) {
         //console.log(data);
-        appendJobs(data);
+        Hiof.appendJobs(data);
       },
       error: function(data) {}
 
@@ -28,7 +28,7 @@
   };
 
 
-  appendJobs = function(data) {
+  Hiof.appendJobs = function(data) {
     var ln = $('html').attr('lang');
 
 
@@ -58,10 +58,10 @@
       }
     });
     if ($('#jobs-available').length) {
-      statusJobs(ln);
+      Hiof.statusJobs(ln);
     }
   };
-  statusJobs = function(ln) {
+  Hiof.statusJobs = function(ln) {
     if (ln === 'en') {
       $.ajax({
         url: 'http://hiof.no/api/v1/jobs/',
@@ -101,15 +101,16 @@
   // On document load
   $(function() {
     if ($('#jobs-list').length) {
-      getJobs();
+      Hiof.getJobs();
+      $('.footable-loaded').trigger('footable_expand_first_row');
     }
     if ($('#jobs-list-en').length) {
-      getJobs('en');
+      Hiof.getJobs('en');
     }
   });
 
 
   // Expose functions to the window
-  window.Hiof.jobs = getJobs;
+  //window.Hiof.jobs = getJobs;
 
 })(window.Hiof = window.Hiof || {});
