@@ -13,7 +13,7 @@
     }
   ],
   "devDependencies": {
-    "babel-eslint": "^4.1.6",
+    "babel-eslint": "^4.1.8",
     "babel-preset-es2015": "^6.1.18",
     "grunt": "^0.4.3",
     "grunt-autoprefixer": "^0.7.2",
