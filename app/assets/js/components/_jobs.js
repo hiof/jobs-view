@@ -30,36 +30,43 @@
 
   Hiof.appendJobs = function(data) {
     var ln = $('html').attr('lang');
+    var uiText;
+
+    Hiof.view.getData({url: "/assets/js/data/i18n.json"}, this).success(function(lndata) {
+      console.log(lndata[ln].jobs);
+      uiText = lndata[ln].jobs;
+      //return data;
+
+      // Add i18n to view
+      data.view = {};
+      data.view.title = uiText.title;
+      data.view.deadline = uiText.deadline;
+      data.view.description = uiText.description;
+      data.view.readmore = uiText.readmore;
 
 
 
+      var templateSource = Hiof.Templates['jobs/jobs'],
+      markup = templateSource(data);
 
-    var uiText = Hiof.options.i18n[ln].jobs;
+      $('#jobs-list').append(markup);
+      $('#jobs-list table').footable({
+        breakpoints: {
+          phone: 640,
+          tablet: 899,
+          desktop: 900
+        }
+      });
+      if ($('#jobs-available').length) {
+        Hiof.statusJobs(ln);
+      }
+
+
+    });
+    //var uiText = Hiof.options.i18n[ln].jobs;
     //debug(data);
 
-    // Add i18n to view
-    data.view = {};
-    data.view.title = uiText.title;
-    data.view.deadline = uiText.deadline;
-    data.view.description = uiText.description;
-    data.view.readmore = uiText.readmore;
 
-
-
-    var templateSource = Hiof.Templates['jobs/jobs'],
-    markup = templateSource(data);
-
-    $('#jobs-list').append(markup);
-    $('#jobs-list table').footable({
-      breakpoints: {
-        phone: 640,
-        tablet: 899,
-        desktop: 900
-      }
-    });
-    if ($('#jobs-available').length) {
-      Hiof.statusJobs(ln);
-    }
   };
   Hiof.statusJobs = function(ln) {
     if (ln === 'en') {

@@ -60,6 +60,9 @@ module.exports = function(grunt) {
       }
     },
     clean: {
+      options: {
+        force: true
+      },
       dist: ['dist/**/*'],
       deploy: ['deploy/**/*'],
       build: ['build/**/*']
@@ -110,6 +113,7 @@ module.exports = function(grunt) {
     concat: {
       scripts: {
         src: [
+          'build/templates.js',
           'build/_<%= pkg.name %>.js'
         ],
         dest: 'build/<%= pkg.name %>.v<%= pkg.version %>.min.js'
