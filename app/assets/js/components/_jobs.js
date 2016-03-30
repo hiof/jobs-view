@@ -33,7 +33,7 @@
     var uiText;
 
     Hiof.view.getData({url: "/assets/js/data/i18n.json"}, this).success(function(lndata) {
-      console.log(lndata[ln].jobs);
+      //console.log(lndata[ln].jobs);
       uiText = lndata[ln].jobs;
       //return data;
 
