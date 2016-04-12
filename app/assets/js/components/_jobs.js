@@ -61,6 +61,7 @@
         Hiof.statusJobs(ln);
       }
 
+      $('.footable-loaded').trigger('footable_expand_first_row');
 
     });
     //var uiText = Hiof.options.i18n[ln].jobs;
@@ -108,11 +109,11 @@
   // On document load
   $(function() {
     if ($('#jobs-list').length) {
-      Hiof.getJobs();
-      $('.footable-loaded').trigger('footable_expand_first_row');
-    }
-    if ($('#jobs-list-en').length) {
-      Hiof.getJobs('en');
+      if ($('html').attr('lang') == 'en') {
+        Hiof.getJobs('en');
+      }else{
+        Hiof.getJobs();
+      }
     }
   });
 
