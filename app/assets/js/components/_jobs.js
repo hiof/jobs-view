@@ -61,7 +61,7 @@
         Hiof.statusJobs(ln);
       }
 
-      $('.footable-loaded').trigger('footable_expand_first_row');
+      //$('.footable-loaded').trigger('footable_expand_first_row');
 
     });
     //var uiText = Hiof.options.i18n[ln].jobs;
