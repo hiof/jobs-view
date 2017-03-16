@@ -13,7 +13,7 @@
     }
     //console.log(settings);
     $.ajax({
-      url: 'http://hiof.no/api/v1/jobs/',
+      url: '//www.hiof.no/api/v1/jobs/',
       method: 'GET',
       async: true,
       dataType: 'json',
@@ -72,7 +72,7 @@
   Hiof.statusJobs = function(ln) {
     if (ln === 'en') {
       $.ajax({
-        url: 'http://hiof.no/api/v1/jobs/',
+        url: '//www.hiof.no/api/v1/jobs/',
         method: 'GET',
         async: true,
         dataType: 'json',
@@ -89,7 +89,7 @@
     } else {
       //debug("test");
       $.ajax({
-        url: 'http://hiof.no/api/v1/jobs/',
+        url: '//www.hiof.no/api/v1/jobs/',
         method: 'GET',
         async: true,
         dataType: 'json',
